@@ -15,7 +15,7 @@ import {PostController, UserController} from './controllers/index.js'
 import { registerValidator, loginValidator, postCreateValidation } from "./validation.js"
 
 
-mongoose.connect('mongodb+srv://admin:baxa1232334@blog.c2z4cry.mongodb.net/blog?retryWrites=true&w=majority')
+mongoose.connect(process.env.MONGODB_URI)
 .then(()=> console.log('DB ok'))
 .catch((err) => console.log('DB', err))
 
@@ -74,7 +74,7 @@ app.patch('/posts/:id',chekcAuth, postCreateValidation, handleValidationErrors, 
 
 
 // порт который нужно слушать
-app.listen(4444, (err)=> {
+app.listen(process.env.PORT || 4444, (err)=> {
   if(err) { 
     return console.log(err);
   }
