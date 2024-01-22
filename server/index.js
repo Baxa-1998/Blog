@@ -14,8 +14,9 @@ import {PostController, UserController} from './controllers/index.js'
 
 import { registerValidator, loginValidator, postCreateValidation } from "./validation.js"
 
-
+// process.env.MONGODB_URI // prod url
 mongoose.connect(process.env.MONGODB_URI)
+
 .then(()=> console.log('DB ok'))
 .catch((err) => console.log('DB', err))
 
@@ -54,8 +55,10 @@ app.get('/tags', PostController.getLastTags)
 
 // получить все статьи 
 app.get('/posts', PostController.getAll)
+app.get('/comment', PostController.getLastComments)
 //  получаем тэги
-app.get('/posts/tags', PostController.getLastTags)
+app.get('/posts/tags', PostController.getLastTags) 
+
 
 // получить одну статью 
 app.get('/posts/:id', PostController.getOne);
@@ -66,8 +69,18 @@ app.get('/popular', PostController.getPopular)
 // создание статьи
 app.post('/posts', chekcAuth,  postCreateValidation, handleValidationErrors, PostController.create) 
 
+// создание комментария 
+app.post('/comment/:id', chekcAuth, PostController.createComment) 
+
+
+
+
+
 // удаление статьи 
 app.delete('/posts/:id', chekcAuth, PostController.remove)
+
+// получить все комментарие 
+app.get('/posts/comment/:id', chekcAuth, PostController.getComments)
 
 // обновление статьи 
 app.patch('/posts/:id',chekcAuth, postCreateValidation, handleValidationErrors, PostController.update)
