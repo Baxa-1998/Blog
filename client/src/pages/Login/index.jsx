@@ -12,7 +12,7 @@ import { Navigate } from 'react-router-dom';
 
 export const Login = () => { 
   const isAuth = useSelector(selectIsAuth)
-  console.log('auth', isAuth);
+  
   const dispatch = useDispatch()
   const {
     register,

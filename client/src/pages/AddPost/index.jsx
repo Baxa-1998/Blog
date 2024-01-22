@@ -102,7 +102,7 @@ export const AddPost = () => {
     return <Navigate to="/" />;
   }
 
-  console.log({title,tags,text});
+  
 
   return (
     <Paper style={{ padding: 30 }}>
@@ -114,7 +114,7 @@ export const AddPost = () => {
         <>   <Button variant="contained" color="error" onClick={onClickRemoveImage}>
           Удалить
         </Button>
-           <img className={styles.image} src={`${process.env.REACT_APP_API_URL}${imageUrl}`} alt="Uploaded" />
+           <img className={styles.image} src={`https://blog-sever-ezqp.onrender.com${imageUrl}`} alt="Uploaded" />
         </> 
       )}
       <br />

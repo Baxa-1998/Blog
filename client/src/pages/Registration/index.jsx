@@ -12,7 +12,7 @@ import { Navigate } from 'react-router-dom';
 
 export const Registration = () => {
   const isAuth = useSelector(selectIsAuth);
-  console.log('auth', isAuth);
+
   const dispatch = useDispatch();
 
   const {
@@ -22,9 +22,9 @@ export const Registration = () => {
     formState: { errors, isValid },
   } = useForm({
     defaultValues: {
-      fullName: 'Narziyev Baxtiyor',
-      email: 'narzievbaxtiyor@gmail.com',
-      password: 'baxa1232334',
+      fullName: '',
+      email: '',
+      password: '',
     },
     mode: 'onChange',
   });

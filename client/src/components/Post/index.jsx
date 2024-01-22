@@ -27,7 +27,10 @@ export const Post = ({
   isFullPost,
   isLoading,
   isEditable,
+  comments
 }) => {
+  console.log(comments);
+  
   const dispatch = useDispatch()
  
   if (isLoading) {
@@ -84,7 +87,7 @@ export const Post = ({
             </li>
             <li>
               <CommentIcon />
-              <span>{commentsCount}</span>
+              <span>{comments.length}</span>
             </li>
           </ul>
         </div>
