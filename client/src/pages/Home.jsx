@@ -54,7 +54,7 @@ export const Home = () => {
           {(isPostLoading ? [...Array(5)]: posts.items).map((obj,index) => isPostLoading ? <Post key={index} isLoading={true}/> :  <Post
               id={obj._id}
               title={obj.title}
-              imageUrl={obj.imageUrl ? `https://blog-sever-ezqp.onrender.com${obj.imageUrl}` : ''}
+              imageUrl={obj.imageUrl ? `${process.env.REACT_APP_API_URL}${obj.imageUrl}` : ''}
               user={obj.user}
               createdAt={obj.createdAt}
               viewsCount={obj.viewsCount} 
@@ -70,7 +70,7 @@ export const Home = () => {
         {(isPostLoading ? [...Array(5)]: popularPosts.items).map((obj,index) => isPostLoading ? <Post key={index} isLoading={true}/> :  <Post
             id={obj._id}
             title={obj.title}
-            imageUrl={obj.imageUrl ? `https://blog-sever-ezqp.onrender.com${obj.imageUrl}` : ''}
+            imageUrl={obj.imageUrl ? `${process.env.REACT_APP_API_URL}${obj.imageUrl}` : ''}
             user={obj.user}
             createdAt={obj.createdAt}
             viewsCount={obj.viewsCount}
