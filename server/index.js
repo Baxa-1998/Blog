@@ -1,6 +1,4 @@
 import express, { json } from "express" 
-import jwt from 'jsonwebtoken' 
-import bcrypt from 'bcrypt' 
 import fs from 'fs'
 import mongoose from "mongoose" 
 import multer from "multer"
